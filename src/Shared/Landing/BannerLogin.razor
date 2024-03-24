@@ -1,0 +1,36 @@
+﻿@inherits BannerLoginViewModel
+
+<section id="banner_part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-xl-2 col-md-6 pl-md-0 d-none d-md-block" style="margin-right: 150px;">
+                <div class="banner_img">
+                    <TelerikQRCode Size="220px"
+                                   Value="@VerifyState.Value.QrUri"
+                                   ErrorCorrection="@QRCodeErrorCorrectionLevel.M">
+                        <QRCodeBorder Color="#000" Width="4"/>
+                    </TelerikQRCode>
+                </div>
+            </div>
+            <div class="main_signup login_main">
+                <h4>Log in</h4>
+                <p>Log in quickly to get all other facilities</p>
+                <form action="">
+                    <div class="signup_inner log_inner">
+                        <div class="sign_input_inner">
+                            <input type="email" placeholder="your e-mail here">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="sign_input_inner">
+                            <input type="password" placeholder="your password here">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <button type="submit">Log in</button>
+                        <a href="#">Forget password</a>
+                        <p class="log_acc_yet">Don’t you have any account yet? <a href="#">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

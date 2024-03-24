@@ -1,8 +1,32 @@
-﻿@page "/login"
+﻿@using mdoc.ui.Shared.Landing;
 
-@layout AuthLayout
+@page "/login"
 
 @inherits LoginViewModel
+
+
+@layout CommonLayout
+
+
+<Menu></Menu>
+<BannerLogin></BannerLogin>
+<Game></Game>
+<Claim></Claim>
+<Membership></Membership>
+<Tournament></Tournament>
+<Payment></Payment>
+<Footer></Footer>
+
+<section>
+    <div class="foot_bot text-center">
+        <p>&copy; 2018. All rights reserved by Designer</p>
+        <div class="effect">
+            <img src="images/shape.png" alt="shape">
+        </div>
+    </div>
+</section>
+
+<Misc></Misc>
 
 <section class="register_section sec_ptb_100">
 	<div class="container">
@@ -11,11 +35,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 					<div class="reg_image" data-aos="fade-up" data-aos-delay="300">
-                        <TelerikQRCode Size="220px"
-                                       Value="@VerifyState.Value.QrUri"
-                                       ErrorCorrection="@QRCodeErrorCorrectionLevel.M">
-                            <QRCodeBorder Color="#000" Width="4"/>
-                        </TelerikQRCode>
+
 					</div>
 				</div>
 
