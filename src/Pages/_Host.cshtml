@@ -15,9 +15,40 @@
 	<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
     <link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
     <link href="https://unpkg.com/@@progress/kendo-theme-bootstrap@@latest/dist/all.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="assets/images/logo/favourite_icon.png">
+
+    <!-- fraimwork - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <!-- icon - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
+
+    <!-- animation - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+
+    <!-- carousel - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+
+    <!-- popup - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+
+    <!-- select options - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nice-select.css">
+
+    <!-- pricing range - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
+
+    <!-- custom - css include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 <body>
-	<app id="app" class="app container-fluid"><component type="typeof(App)" render-mode="ServerPrerendered" /></app>
+    <app id="app" class="app container-fluid">
+        <component type="typeof(App)" render-mode="ServerPrerendered"/>
+    </app>
 
 	<div id="blazor-error-ui" class="alert alert-warning">
 		<environment include="Staging,Production">
@@ -31,7 +62,7 @@
 		</div>
 	</div>
 
-    <script src="_content/Fluxor.Blazor.Web/scripts/index.js"></script>
+    @* <script src="_content/Fluxor.Blazor.Web/scripts/index.js"></script> *@
 	<script src="_framework/blazor.server.js"></script>
 </body>
 </html>
