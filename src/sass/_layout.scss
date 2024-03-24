@@ -156,12 +156,7 @@ kendo-tabstrip {
 }
 
 #copy::after {
-    content: "";
-    width: $spacer * 1.5;
-    border-top: 2px solid;
-    position: absolute;
-    left: 0;
-    top: -($spacer * 1.5);
+    content: none;
 }
 
 .top-bar {

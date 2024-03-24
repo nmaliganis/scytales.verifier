@@ -2,31 +2,31 @@
 @page "/dashboard"
 @inherits DashboardViewModel
 
-    <div class="dashboard">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <h3 class="card-header">Commands</h3>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="form-group">
-                                <TelerikButton 
-                                    Enabled="true"
-                                    OnClick="@OnInitializePresentationClickHandler">
-                                    Initialize Presentation
-                                </TelerikButton>
-                            </div>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h3 class="card-header">Commands</h3>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <TelerikButton 
+                                Enabled="true"
+                                OnClick="@OnInitializePresentationClickHandler">
+                                Initialize Presentation
+                            </TelerikButton>
                         </div>
-                        <div class="row">
-                            <TelerikQRCode Size="220px"
-                               Value="@VerifyState.Value.QrUri"
-                               ErrorCorrection="@QRCodeErrorCorrectionLevel.M"
-                            >
-                                <QRCodeBorder Color="#000" Width="4"/>
-                            </TelerikQRCode>
-                        </div>
+                    </div>
+                    <div class="row">
+                        <TelerikQRCode Size="220px"
+                           Value="@VerifyState.Value.QrUri"
+                           ErrorCorrection="@QRCodeErrorCorrectionLevel.M"
+                        >
+                            <QRCodeBorder Color="#000" Width="4"/>
+                        </TelerikQRCode>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
