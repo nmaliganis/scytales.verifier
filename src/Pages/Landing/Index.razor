@@ -3,8 +3,36 @@
 
 @layout CommonLayout
 
+<body class="sidebar-main-menu">
+    <!-- loader Start -->
+    <div id="loading">
+        <div id="loading-center">
 
-<Header></Header>
-<Main></Main>
-<Footer></Footer>
-<Misc></Misc>
+        </div>
+    </div>
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <Sidebar/>
+        <div id="content-page" class="content-page">
+            <Navbar/>
+            <MainContainer/>
+            <footer class="bg-white iq-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 text-end">
+                            Copyright 2020 <a href="#">XRay</a> All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <Misc/>
+</body>
