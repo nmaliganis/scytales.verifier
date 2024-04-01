@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using mdoc.ui.Models.PidPresentationDefinitions;
+using mdoc.ui.Models.Wallets;
 using mdoc.ui.ServiceAgents.Base;
 using mdoc.ui.ServiceAgents.Contracts;
 using Microsoft.Extensions.Configuration;
@@ -95,8 +96,70 @@ public class VerifyDataService : IVerifyDataService
         return result;
     }
 
-    public Task<PresentationDto> ReceivingWallet(string presentationId)
+    public async Task<string> ReceivingWallet(string presentationId)
     {
-        throw new NotImplementedException();
+        string result = string.Empty;
+
+        var client = new RestClient($"{BaseAddr}/{presentationId}");
+        var request = new RestRequest();
+
+        request.AddHeader("Content-Type", "application/json");
+
+        try
+        {
+            var response = await client.ExecuteGetAsync(request);
+            if (response.IsSuccessful)
+            {
+                var resultWallet = JsonConvert.DeserializeObject<WalletDto>(response!.Content!);
+                result = resultWallet.vp_token;
+            }
+            else if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                WalletErrorModel resultError =
+                    JsonConvert.DeserializeObject<WalletErrorModel>(response!.Content!);
+                throw new ServiceHttpRequestException<string>(response.StatusCode, "No Content");
+            }
+            else if (response.StatusCode == HttpStatusCode.Conflict)
+            {
+                WalletErrorModel resultError =
+                    JsonConvert.DeserializeObject<WalletErrorModel>(response!.Content!);
+                throw new ServiceHttpRequestException<string>(response.StatusCode, resultError!.ErrorMessage);
+            }
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                WalletErrorModel resultError =
+                    JsonConvert.DeserializeObject<WalletErrorModel>(response!.Content!);
+                throw new ServiceHttpRequestException<string>(response.StatusCode, resultError!.ErrorMessage);
+            }
+            else if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                WalletErrorModel resultError =
+                    JsonConvert.DeserializeObject<WalletErrorModel>(response!.Content!);
+                throw new ServiceHttpRequestException<string>(response.StatusCode, resultError!.ErrorMessage);
+            }
+            else if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                WalletErrorModel resultError =
+                    JsonConvert.DeserializeObject<WalletErrorModel>(response!.Content!);
+                throw new ServiceHttpRequestException<string>(response.StatusCode, resultError!.ErrorMessage);
+            }
+            else if (response.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                if (!string.IsNullOrEmpty(response!.Content!))
+                {
+                    WalletErrorModel resultError =
+                        JsonConvert.DeserializeObject<WalletErrorModel>(response!.Content!);
+                    throw new ServiceHttpRequestException<string>(response.StatusCode, resultError!.ErrorMessage);
+                }
+
+                throw new Exception("ERROR_CONNECTION_SERVER");
+            }
+        }
+        catch (Exception e)
+        {
+            throw new ServiceHttpRequestException<string>(HttpStatusCode.Conflict, e.Message);
+        }
+
+        return result;
     }
 }
