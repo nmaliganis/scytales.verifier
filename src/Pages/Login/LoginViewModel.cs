@@ -127,7 +127,6 @@ namespace mdoc.ui.Pages.Login
             else
             {
                 ShowSuccessLogin();
-                Thread.Sleep(1000);
                 this.InvokeAsync(() => this.NavigationManager.NavigateTo($"dashboard"));
             }
 
