@@ -9,8 +9,9 @@ public class VerifyFeature : Feature<VerifyState>
 
     protected override VerifyState GetInitialState() => new VerifyState(
         string.Empty,
-        true,
+        false,
         new PresentationDto(),
-        string.Empty
+        string.Empty,
+        false
     );
 }

@@ -6,5 +6,5 @@ namespace mdoc.ui.ServiceAgents.Contracts;
 public interface IVerifyDataService
 {
     Task<PresentationDto> InitializePresentation(string payload);
-    Task<PresentationDto> ReceivingWallet(string presentationId);
+    Task<string> ReceivingWallet(string presentationId);
 }

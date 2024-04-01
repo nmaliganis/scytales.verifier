@@ -12,7 +12,8 @@ public class InitializePresentationSuccessReducer : Reducer<VerifyState, Initial
             string.Empty,
             false,
             action.Presentation,
-            UriBuilder.BuildUri(action.Presentation.client_id, action.Presentation.request_uri)
+            UriBuilder.BuildUri(action.Presentation.client_id, action.Presentation.request_uri),
+            true
         );
     }
 }

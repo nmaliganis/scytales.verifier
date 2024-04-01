@@ -2,6 +2,11 @@
 
 <section id="banner_part">
     <div class="container">
+        <TelerikNotification @ref="NotificationComponent"
+                             Class="toastr-notification"
+                             VerticalPosition="NotificationVerticalPosition.Top"
+                             HorizontalPosition="NotificationHorizontalPosition.Center">
+        </TelerikNotification>
         <div class="row">
             <div class="col-lg-5 col-xl-2 col-md-6 pl-md-0 d-none d-md-block" style="margin-right: 150px;">
                 <div class="banner_img">
@@ -12,6 +17,21 @@
                     </TelerikQRCode>
                 </div>
             </div>
+
+            @if (SubmitValidated)
+            {
+                @if (VerifyState.Value.IsQrFetched)
+                {
+                    //ShowSuccessLogin();
+                    CheckIfVerifiedQrWasScanned();
+                }
+
+                @if (!VerifyState.Value.IsQrFetched)
+                {
+                    ShowErrorLogin();
+                }
+            }
+
             <div class="main_signup login_main">
                 <h4>Log in</h4>
                 <p>Log in quickly to get all other facilities</p>

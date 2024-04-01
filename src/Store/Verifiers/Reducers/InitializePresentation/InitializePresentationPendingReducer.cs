@@ -11,7 +11,8 @@ public class InitializePresentationPendingReducer : Reducer<VerifyState, Initial
             string.Empty,
             true,
             state.Presentation,
-            state.QrUri
+            state.QrUri,
+            false
         );
     }
 }

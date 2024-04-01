@@ -16,11 +16,15 @@ namespace mdoc.ui.Pages.Dashboard
         [Inject] public IConfiguration Configuration { get; set; }
 
         [Inject] public IState<VerifyState> VerifyState { get; set; }
+        [Inject] public IState<WalletState> WalletState { get; set; }
+
+        public string VpToken { get; set; }
 
         #region Initialization
 
         protected override Task OnInitializedAsync()
         {
+            this.VpToken = WalletState.Value.Token;
             StateHasChanged();
             return base.OnInitializedAsync();
         }

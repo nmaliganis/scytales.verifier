@@ -1,7 +1,5 @@
-using System.Net.Http;
 using Blazored.LocalStorage;
 using Fluxor;
-using mdoc.ui.Schedulers;
 using mdoc.ui.ServiceAgents.Contracts;
 using mdoc.ui.ServiceAgents.Impls;
 using Microsoft.AspNetCore.Builder;
@@ -9,9 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Quartz.Impl;
-using Quartz.Spi;
-using Quartz;
 using Westwind.AspNetCore.LiveReload;
 
 namespace mdoc.ui
@@ -48,7 +43,6 @@ namespace mdoc.ui
             services.AddBlazoredLocalStorage(config =>
                 config.JsonSerializerOptions.WriteIndented = true);
 
-            services.AddSingleton<ReceivingWalletVerifierInitializerJob>();
 
             services.AddScoped<IVerifyDataService, VerifyDataService>();
         }

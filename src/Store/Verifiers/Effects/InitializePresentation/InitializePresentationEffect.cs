@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Fluxor;
-using mdoc.ui.Schedulers;
 using mdoc.ui.ServiceAgents.Contracts;
 using mdoc.ui.Store.Verifiers.Actions.InitializePresentation;
 using Microsoft.Extensions.Hosting;

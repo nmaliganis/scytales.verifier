@@ -11,7 +11,8 @@ public class InitializePresentationFailedReducer : Reducer<VerifyState, Initiali
             action.Message,
             false,
             state.Presentation,
-            state.QrUri
+            state.QrUri,
+            false
         );
     }
 }
